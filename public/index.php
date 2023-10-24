@@ -16,3 +16,16 @@ $hello = new Demo\HelloWorld();
 //類別別名
 use Demo\HelloWorld as World;
 $world = new World();
+
+//monolog/monolog
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+// create a log channel
+$log = new Logger('WISD');
+$log->pushHandler(new StreamHandler('../Log/my.log', Level::Warning));
+
+// add records to the log
+$log->warning('Foo');
+$log->error('Bar');
